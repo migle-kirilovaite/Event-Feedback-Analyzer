@@ -21,8 +21,7 @@ public class EventService {
         Event event = Event.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())
-
-    .build();
+                .build();
 
         Event saved = eventRepository.save(event);
 
@@ -35,6 +34,7 @@ public class EventService {
 
     public List<EventResponse> listEvents() {
         List<Event> events = eventRepository.findAll();
+
         return events.stream()
                 .map(event -> EventResponse.builder()
                         .id(event.getId())

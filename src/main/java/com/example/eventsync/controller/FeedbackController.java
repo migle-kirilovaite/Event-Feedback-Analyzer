@@ -1,6 +1,7 @@
 package com.example.eventsync.controller;
 
 import com.example.eventsync.dto.CreateFeedbackRequest;
+import com.example.eventsync.dto.EventSentimentSummary;
 import com.example.eventsync.dto.FeedbackResponse;
 import com.example.eventsync.service.FeedbackService;
 import jakarta.validation.Valid;
@@ -19,6 +20,14 @@ public class FeedbackController {
     public ResponseEntity<FeedbackResponse> submitFeedback(@PathVariable Long eventId, @Valid @RequestBody CreateFeedbackRequest request) {
         FeedbackResponse created = feedbackService.submitFeedback(eventId, request);
         URI location = URI.create(String.format("/events/%s/feedback/%s", eventId, created.getId()));
+
         return ResponseEntity.created(location).body(created);
+    }
+
+    @GetMapping("/summary")
+        public ResponseEntity<EventSentimentSummary> getEventSummary(@PathVariable Long eventId) {
+        EventSentimentSummary summary = feedbackService.getEventSentimentSummary(eventId);
+
+        return ResponseEntity.ok(summary);
     }
 }
