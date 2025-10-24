@@ -11,8 +11,8 @@ import lombok.*;
 @Builder
 public class CreateEventRequest {
     @NotBlank(message = "Title must not be blank")
-    @Size(max = 255, message = "Title must not exceed 255 characters")
+    @Size(max = 64, message = "Title must not exceed 64 characters")
     private String title;
-    @Size(max = 1000, message = "Description must not exceed 1000 characters")
+    @Size(max = 256, message = "Description must not exceed 256 characters")
     private String description;
 }
