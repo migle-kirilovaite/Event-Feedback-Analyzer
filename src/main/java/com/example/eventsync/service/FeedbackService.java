@@ -121,7 +121,7 @@ public class FeedbackService {
                 .build();
     }
 
-    private Map<String, Object> analyzeTextWithHuggingFace(String text) {
+    public Map<String, Object> analyzeTextWithHuggingFace(String text) {
         WebClient client = WebClient.builder()
                 .baseUrl("https://router.huggingface.co")
                 .build();
@@ -156,7 +156,7 @@ public class FeedbackService {
         }
     }
 
-    private static String mapLabelToSentiment(String label) {
+    public static String mapLabelToSentiment(String label) {
         if (label == null) return "neutral";
         String s = label.toLowerCase(Locale.ROOT);
         if (s.equals("label_2")) return "positive";
@@ -165,7 +165,7 @@ public class FeedbackService {
         return "neutral";
     }
 
-    private static SentimentStats makeStats(int count, double sum) {
+    public static SentimentStats makeStats(int count, double sum) {
         if (count == 0)
             return SentimentStats.builder().count(0).avgScore(0.0).build();
         double avg = sum / count;
