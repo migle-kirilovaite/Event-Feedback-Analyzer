@@ -21,7 +21,7 @@ public class Feedback {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    @Column(nullable = false, length = 2000)
+    @Column(nullable = false, length = 1000)
     private String text;
 
     @Column(nullable = false, updatable = false)

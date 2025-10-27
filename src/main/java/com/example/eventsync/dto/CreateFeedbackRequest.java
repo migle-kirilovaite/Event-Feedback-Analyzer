@@ -13,11 +13,11 @@ import lombok.*;
 @Schema(description = "Feedback submission request")
 public class CreateFeedbackRequest {
     @NotBlank(message = "Feedback text must not be blank")
-    @Size(max = 2000, message = "Feedback text must not exceed 2000 characters")
+    @Size(max = 1000, message = "Feedback text must not exceed 2000 characters")
     @Schema(description = "Feedback text content",
             example = "Great event! The speakers were very knowledgeable and engaging.",
             minLength = 1,
-            maxLength = 2000,
+            maxLength = 1000,
             required = true)
     private String text;
 }

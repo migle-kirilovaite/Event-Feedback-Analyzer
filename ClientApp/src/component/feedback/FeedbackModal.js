@@ -6,7 +6,7 @@ export const FeedbackModal = ({ eventId, onClose, onFeedbackSubmitted }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const FEEDBACK_MAX_LENGTH = 2000;
+    const FEEDBACK_MAX_LENGTH = 1000;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
