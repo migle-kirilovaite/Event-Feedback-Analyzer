@@ -5,6 +5,8 @@ Event Feedback Analyzer is a web-based application designed to collect and analy
 Deployed application is available on:\
 https://event-analyzer-62743443573.europe-west1.run.app/
 
+![til](eventsync.gif)
+
 ## Technologies Used
 
 ### Backend
