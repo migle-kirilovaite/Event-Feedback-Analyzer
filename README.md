@@ -86,4 +86,4 @@ http://localhost:8080/swagger-ui.html \
 **Note**: This is not available in deployed application.
 
 ## Test coverage
-The application has been thoroughly tested using both unit and integrated tests, with automated test coverage reaching 88%
+The application has been thoroughly tested using both unit and integration tests, achieving test coverage of 88%.
