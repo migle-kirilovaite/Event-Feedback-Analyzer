@@ -8,6 +8,7 @@ import com.example.eventsync.entity.Event;
 import com.example.eventsync.entity.Feedback;
 import com.example.eventsync.repository.EventRepository;
 import com.example.eventsync.repository.FeedbackRepository;
+import com.example.eventsync.util.SentimentUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -114,7 +115,7 @@ class FeedbackServiceTest {
     @NullAndEmptySource
      void mapLabelToSentiment_ShouldMapCorrectly(String label) {
         // when
-        String sentiment = FeedbackService.mapLabelToSentiment(label);
+        String sentiment = SentimentUtils.mapLabelToSentiment(label);
 
         // then
         assertThat(sentiment)
@@ -133,7 +134,7 @@ class FeedbackServiceTest {
     @Test
     void makeStats_WhenCountIsZero_ShouldReturnZeroStats() {
         // when
-        SentimentStats stats = FeedbackService.makeStats(0, 0.0);
+        SentimentStats stats = SentimentUtils.makeStats(0, 0.0);
 
         // then
         assertThat(stats)
@@ -147,7 +148,7 @@ class FeedbackServiceTest {
     @Test
     void makeStats_WhenHasValues_ShouldCalculateAverage() {
         // when
-        SentimentStats stats = FeedbackService.makeStats(2, 1.5);
+        SentimentStats stats = SentimentUtils.makeStats(2, 1.5);
 
         // then
         assertThat(stats)

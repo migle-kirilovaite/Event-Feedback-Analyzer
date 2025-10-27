@@ -39,31 +39,40 @@ export const EventList = ({ refreshTrigger }) => {
 
     return (
         <>
-            <div className="events-grid">
-                {events.map((event) => (
-                    <div key={event.id} className="event-card">
-                        <div className="event-header">
-                            <h3 className="event-title">{event.title}</h3>
+            {isLoading && <div className="loading">Loading events...</div>}
+            {error && <div className="error">{error}</div>}
+
+            {!isLoading && !error && events.length === 0 && (
+                <div className="no-events">No events available at the moment. Click + to add an event.</div>
+            )}
+
+            {!isLoading && !error && events.length > 0 && (
+                <div className="events-grid">
+                    {events.map((event) => (
+                        <div key={event.id} className="event-card">
+                            <div className="event-header">
+                                <h3 className="event-title">{event.title}</h3>
+                            </div>
+
+                            <div className="event-content">
+                                <p className="event-description">{event.description}</p>
+
+                                <SentimentSummary
+                                    eventId={event.id}
+                                    ref={el => sentimentRefs.current[event.id] = el}
+                                />
+
+                                <button
+                                    className="write-feedback-button"
+                                    onClick={() => setSelectedEventId(event.id)}
+                                >
+                                    Write Feedback
+                                </button>
+                            </div>
                         </div>
-
-                        <div className="event-content">
-                            <p className="event-description">{event.description}</p>
-
-                            <SentimentSummary
-                                eventId={event.id}
-                                ref={el => sentimentRefs.current[event.id] = el}
-                            />
-
-                            <button
-                                className="write-feedback-button"
-                                onClick={() => setSelectedEventId(event.id)}
-                            >
-                                Write Feedback
-                            </button>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            )}
 
             {selectedEventId && (
                 <FeedbackModal
