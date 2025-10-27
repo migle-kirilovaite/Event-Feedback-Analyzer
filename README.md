@@ -74,7 +74,7 @@ docker build -t event-feedback-analyzer .
 
 3. Run the container
 ```bash
-docker run -p 8080:8080 event-feedback-analyzer
+docker run -p 8080:8080 event-feedback-analyzer -e HUGGINGFACE_API_KEY=YOUR_HUGGINGFACE_API_KEY
 ```
 
 After the container starts, access the application at:\
@@ -84,3 +84,6 @@ http://localhost:8080
 Interactive API documentation is available through Swagger UI:\
 http://localhost:8080/swagger-ui.html \
 **Note**: This is not available in deployed application.
+
+## Test coverage
+The application has been thoroughly tested using both unit and integrated tests, with automated test coverage reaching 88%
