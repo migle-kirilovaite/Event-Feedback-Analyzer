@@ -20,6 +20,7 @@ public class CreateEventRequest {
             maxLength = 255,
             required = true)
     private String title;
+
     @Size(max = 256, message = "Description must not exceed 256 characters")
     @Schema(description = "Event description",
             example = "Annual technology conference with industry experts",

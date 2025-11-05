@@ -74,7 +74,7 @@ docker build -t event-feedback-analyzer .
 
 3. Run the container
 ```bash
-docker run -p 8080:8080 event-feedback-analyzer -e HUGGINGFACE_API_KEY=YOUR_HUGGINGFACE_API_KEY
+docker run -e HUGGINGFACE_API_TOKEN=YOUR_HUGGINGFACE_API_TOKEN -p 8080:8080 event-feedback-analyzer 
 ```
 
 After the container starts, access the application at:\

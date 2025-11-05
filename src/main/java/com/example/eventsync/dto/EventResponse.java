@@ -12,8 +12,10 @@ import lombok.*;
 public class EventResponse {
     @Schema(description = "Unique identifier of the event", example = "1")
     private Long id;
+
     @Schema(description = "Event title", example = "Tech Conference 2025")
     private String title;
+
     @Schema(description = "Event description", example = "Annual technology conference with industry experts")
     private String description;
 }

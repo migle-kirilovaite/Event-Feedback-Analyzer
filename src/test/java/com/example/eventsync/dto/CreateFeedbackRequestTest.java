@@ -104,10 +104,10 @@ class CreateFeedbackRequestTest {
     }
 
     @Test
-    void validate_WhenTextExceeds2000Characters_ShouldHaveViolation() {
+    void validate_WhenTextExceeds1000Characters_ShouldHaveViolation() {
         // given
         CreateFeedbackRequest request = CreateFeedbackRequest.builder()
-                .text("a".repeat(2001))
+                .text("a".repeat(1001))
                 .build();
 
         // when
@@ -121,10 +121,10 @@ class CreateFeedbackRequestTest {
     }
 
     @Test
-    void validate_WhenTextIsExactly2000Characters_ShouldBeValid() {
+    void validate_WhenTextIsExactly1000Characters_ShouldBeValid() {
         // given
         CreateFeedbackRequest request = CreateFeedbackRequest.builder()
-                .text("a".repeat(2000))
+                .text("a".repeat(1000))
                 .build();
 
         // when

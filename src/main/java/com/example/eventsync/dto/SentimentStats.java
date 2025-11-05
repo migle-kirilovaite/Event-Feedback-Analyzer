@@ -14,6 +14,7 @@ public class SentimentStats {
             example = "5",
             minimum = "0")
     private int count;
+
     @Schema(description = "Average sentiment score for this category",
             example = "0.85",
             minimum = "0",
